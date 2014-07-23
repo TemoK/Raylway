@@ -2,10 +2,10 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="net.playexpert.Raylway" version="1.0.0">
     <name>Raylway</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Geo Raylway APP
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+        Playexpert Team
     </author>
     <content src="index.html"/>
     <access origin="*"/>
