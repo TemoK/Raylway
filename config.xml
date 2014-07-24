@@ -10,5 +10,5 @@
     <content src="index.html"/>
     <access origin="*"/>
     <preference name="phonegap-version" value="2.9.0" />  
-    <icon src="res/icons/" />
+    <icon src="icon.png" />
 </widget>
