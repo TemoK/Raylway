@@ -1,0 +1,54 @@
+<div class="load-container height100">
+    <div id="login" class="table-div">
+        <div class="row">
+            <div class="col">
+                <img src="./img/logo.png" alt="" class="logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col padding20">
+                <form id="authentify" autocomplete="off">
+                    <input type="hidden" name="name" value="login">
+                    <input type="text" name="loginname" placeholder="{@login}">
+                    <input type="password" name="password" placeholder="{@password}">
+                    <div class="table-div">
+                        <div class="row">
+                            <div class="col align-left" style="width: 100px">
+                                <input class="input-type-submit" type="submit" value="{@enter}">
+                            </div>
+                            <div class="col"></div>
+                            <div class="col align-right">
+                                <a href="/register" data-skip="true" data-target="body" class="block-link-normal">{@registration}</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="langs">
+                    <a class="lang-switch" href="en_US">{@english}</a> | <a class="lang-switch" href="ka_GE">{@georgian}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $('.lang-switch').click(function() {
+
+        $l = $(this).attr('href');
+        app_lang = language[$l];
+
+        Http.loc({
+            skip: true,
+            url: '/login',
+            callback: function(data) {
+                target_content('body', data);
+            }
+        });
+        return false;
+    });
+</script>
+<script type="text/javascript" src="./js/modules/login.js"></script>

@@ -1,0 +1,86 @@
+
+if (typeof language === 'undefined') {
+    var language = {};
+}
+
+language['en_US'] = {
+    enter: 'Enter',
+    login: 'Username',
+    password: 'Password',
+    password_retry: 'Repeat password',
+    registration: 'Registration',
+    back: 'Back',
+    next: 'Next',
+    please_wait: 'Loading...',
+    register: 'Registration',
+    register_name: 'Name (Max. 15 symbols A-Z)',
+    register_login: 'Username (Max. 15 symbols A-Z 0-9)',
+    register_password: 'Password (Max. 15 symbols A-Z)',
+    sex: 'Sex',
+    women: 'Women',
+    men: 'Men',
+    select: 'Select',
+    birthdate: 'Birthdate ',
+    city: 'City',
+    info: 'Additional info',
+    error: 'Error',
+    success: 'OK',
+    close: 'Close',
+    connection_error: 'ოპერაციის შესრულება შეუძლებელია. გთხოვთ, შეამოწმოთ ინტერნეტ კავშირი',
+    inet_connection_error: 'ინტერნეტთან კავშირი ვერ მოხერხდა',
+    ok: 'დახურვა',
+    author: 'ავტორი',
+    unknown: 'უცნობი',
+    send: 'გაგზავნა',
+    text: 'ტექსტი',
+    /* user card */
+
+    user: 'მომხმარებელი',
+    nick: 'მეტსახელი',
+
+    DEFAULT_SYSTEM_ERROR: 'ოპერაციის შესრულებისას დაფიქსირდა შეცდომა',
+
+    location: 'მისამართი',
+    phone: 'ტელ. ნომერი',
+    email: 'ელ. ფოსტა',
+    agreeadvbyphone: 'რეკლამა ტელეფონზე',
+    agreeadvbyemail: 'რეკლამა ელ.ფოსტაზე',
+    firstname: 'სახელი',
+    lastname: 'გვარი',
+    raylway: 'რკინიგზა',
+    departure: 'გამგზავრება',
+    arrival: 'ჩასვლა',
+    date: 'თარიღი',
+    find: 'ძებნა',
+    ccy: 'GEL',
+    weekDays: [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+    ],
+    months: ["იანვარი", "თებერვალი", "მარტი",
+        "აპრილი", "მაისი", "ივნისი", "ივლისი", "აგვისტო", "სექტემბერი",
+        "ოქტომბერი", "ნოემბერი", "დეკემბერი"],
+    count: 'რაოდენობა',
+    please_select_count: 'გთხოვთ, აირჩიოთ რაოდენობა',
+    standard_place: 'ჩვეულებრივი',
+    child_place: 'საბავშვო',
+    find_places: 'ადგილების ძებნა',
+    wagon: 'ვაგონი',
+    seat_number: 'ადგილი: #',
+    price: 'ფასი ',
+    passenger_info: 'მონაცემები',
+    checkout: 'შეძენა',
+    GEL: ' GEL',
+    pin: 'პირადი ნომერი',
+    save: 'შენახვა',
+    passenger_info_error: 'აუცილებელია ყველა მგზავრის მონაცემების სრულად შეყვანა',
+    
+    georgian: 'ქართული',
+    english: 'ENGLISH'
+};
+

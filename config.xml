@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="net.playexpert.Raylway" version="1.0.1">
+    <name>Raylway</name>
+    <description>
+        Georgian Raylway Tickets
+    </description>
+    <author email="tkvirkvelia@playexpert.net" href="http://playexpert.net">
+        Playexpert Team
+    </author>
+    <content src="index.html"/>
+    <access origin="*"/>
+    <preference name="phonegap-version" value="2.9.0" />  
+    <icon src="res/icons/" />
+</widget>
