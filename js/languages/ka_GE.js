@@ -1,9 +1,9 @@
 
-if (typeof language === 'undefined'){
+if (typeof language === 'undefined') {
     var language = {};
 }
 
-language['ka_GE']= {
+language['ka_GE'] = {
     enter: 'შესვლა',
     login: 'მომხმარებელი',
     password: 'პაროლი',
@@ -37,14 +37,13 @@ language['ka_GE']= {
 
     user: 'მომხმარებელი',
     nick: 'მეტსახელი',
-    
     DEFAULT_SYSTEM_ERROR: 'ოპერაციის შესრულებისას დაფიქსირდა შეცდომა',
-    
     location: 'მისამართი',
-    phone: 'ტელ. ნომერი',
+    phone: 'ტელ. ნომერი (+995 5XX XXXXXX)',
     email: 'ელ. ფოსტა',
-    agreeadvbyphone: 'რეკლამა ტელეფონზე',
-    agreeadvbyemail: 'რეკლამა ელ.ფოსტაზე',
+    confirm_email: 'გაიმეორეთ ელ.ფოსტა',
+    agreeadvbyphone: 'მივიღო რეკლამა ტელეფონზე',
+    agreeadvbyemail: 'მივიღო რეკლამა ელ.ფოსტაზე',
     firstname: 'სახელი',
     lastname: 'გვარი',
     raylway: 'რკინიგზა',
@@ -79,8 +78,21 @@ language['ka_GE']= {
     pin: 'პირადი ნომერი',
     save: 'შენახვა',
     passenger_info_error: 'აუცილებელია ყველა მგზავრის მონაცემების სრულად შეყვანა',
-    
+    view: 'ნახვა',
+    train_number: 'ნომერი',
+    tickers: 'ბილეთები',
     georgian: 'ქართული',
-    english: 'ENGLISH'
+    english: 'ENGLISH',
+    ticket: 'ბილეთი',
+    trains: 'მატარებლები',
+    seats: 'ადგილები',
+    payment: 'გადახდა',
+    orders: 'შეკვეთები',
+    menu: 'მენიუ',
+    home: 'მთავარი',
+    exit: 'გასვლა',
+    payment_confirmed: 'გადახდილი',
+    payment_canceled: 'გადაუხდელი',
+    status: 'სტატუსი'
 };
 

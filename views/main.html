@@ -4,7 +4,7 @@
         <div class="header">
             <a href="back" class="block-link-normal return-button"></a>
             <!--div id="openWestPane" class="float-left right-arrow-icon"></div-->
-            <!--<div id="openEastPane" class="float-right left-arrow-icon"></div>-->
+            <div id="openEastPane" class="float-right settings-icon"></div>
             <div id="topPaneCenter"></div>
             <div class="clearer"></div>
         </div>
@@ -13,14 +13,22 @@
     <div class="panes-bg pane ui-layout-east">
         <div class="pane-header">
             <div id="closeEastPane" class="float-left right-arrow-icon"></div>
-            <div class="float-right">bla</div>
+            <div class="float-right"><span class="bold">{@menu}</span></div>
             <div class="clearer"></div>
+        </div>
+        <div class="pane-body">
+            <a href="/default" class="menu-item block-link-normal">{@home}</a>
+            <div class="menu-divisor"></div>
+            <a href="/orders" class="menu-item block-link-normal">{@orders}</a>
+            <div class="menu-divisor"></div>
+            <a href="/logout" class="menu-item block-link-normal">{@exit}</a>
+            <div class="menu-divisor"></div>
         </div>
     </div>
     <div class="panes-bg pane ui-layout-west">
         <div class="pane-header">
             <div id="closeWestPane" class="float-right left-arrow-icon"></div>
-            <div class="float-left">bla</div>
+            <div class="float-left"><span class="bold">{@menu}</span></div>
             <div class="clearer"></div>
         </div>
     </div>

@@ -31,7 +31,7 @@ var Http = {
                         class: 'row',
                         html: $('<div>', {
                             class: 'col',
-                            html: $('<div>',{
+                            html: $('<div>', {
                                 class: 'request-wait-block',
                                 text: app_lang.please_wait
                             })
@@ -45,12 +45,14 @@ var Http = {
     },
     get: function(options) {
         options.type = 'GET';
-        options.url = options.url.concat('?format=2');
+        options.data['format'] = 2;
+        options.data['LanguageID'] = apiLanguage;
         this.request(options, false);
     },
     post: function(options) {
         options.type = 'POST';
-        options.url = options.url.concat('?format=2');
+        options.data['format'] = 2;
+        options.data['LanguageID'] = apiLanguage;
         this.request(options, false);
     },
     loc: function(options) {

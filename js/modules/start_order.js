@@ -28,6 +28,9 @@ $(document).ready(function() {
             $from.bind({
                 change: function() {
                     $('#station-name').val($(this).find('option:selected').text());
+                    setLocalData({
+                        fromto: $('#station-name').val()
+                    });
                 }
             });
             $from.trigger('change');
@@ -37,7 +40,7 @@ $(document).ready(function() {
 
     $('#find-trains').submit(function() {
         var $form = $(this);
-        var params = $form.serialize();
+        var params = serializeObj($form);
         Http.get({
             cacheIn: 'trains',
             url: '/world.aspx',

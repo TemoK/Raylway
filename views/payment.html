@@ -1,9 +1,23 @@
 <div class="page-title-icon">
-    <div class="menu-news-icon page-title">{@raylway}</div>
+    <div class="menu-news-icon page-title">{@payment}</div>
 </div>
 <br>
-<div class="load-container padding7">
+<div class="load-container">
     <div id="payment-intervale">
-        <iframe src="http://playexpert.net/raylway" class="payment-frame"></iframe>
+        <iframe name="kartu-frame" src="" class="payment-frame"></iframe>
     </div>
 </div>
+<div>
+    <form target="kartu-frame" id="kartu" action="https://e-commerce.cartubank.ge/servlet/Process3DSServlet/3dsproxy_init.jsp" method="post" >
+        <input name="PurchaseDesc" id="hidOrderID" type="hidden" value="" />
+        <input name="PurchaseAmt" id="hidAmount" type="hidden" value="" />
+        <input name="CountryCode" type="hidden" value="268" />
+        <input name="CurrencyCode" type="hidden" value="981" />
+        <input name="MerchantName" type="hidden" value="Biletebi.ge" />
+        <input name="MerchantURL" id="hidReturnURL" type="hidden" value="" />
+        <input name="MerchantCity" type="hidden" value="Tbilisi" />
+        <input name="MerchantID" type="hidden" value="000000008000184-00000001" />
+        <input name="xDDDSProxy.Language" id="hidLanguage" type="hidden" value="" />
+    </form>
+</div>
+<script type="text/javascript" src="./js/modules/payment.js"></script>

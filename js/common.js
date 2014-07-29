@@ -12,16 +12,50 @@ var glb = {
     }
 };
 
-var sessionId = function() {
+function serializeObj(selector) {
+    var data = {};
+    $(selector).find('input, select').each(function(k, elem) {
+        var $elem = $(elem);
+        if (defined($elem.attr('name'))) {
+            var $value = new String();
+            if ($elem.attr('type') == 'checkbox') {
+                if ($elem.is(':checked')) {
+                    $value = $elem.val();
+                } else {
+                    $value = '';
+                }
+            } else {
+                $value = $elem.val();
+            }
+            data[$elem.attr('name')] = $value;
+        }
+    });
+    return data;
+}
 
-    if (defined(localStorage.sessionId)) {
-        return localStorage.getItem('sessionId');
+function setLocalData(data) {
+    if (defined(window.localStorage)) {
+        for (var i in data) {
+            window.localStorage.setItem(i, data[i]);
+        }
     }
+}
 
-    var ses = 'a' + Math.random().toString(36).substr(2, 20);
-    localStorage.setItem('sessionId', ses);
-    return ses;
-}();
+function getLocalData(key) {
+    if (!key) {
+        return window.localStorage;
+    }
+    if (defined(window.localStorage[key])) {
+        return window.localStorage[key];
+    }
+    return null;
+}
+function removeLocalData(key) {
+    if (defined(window.localStorage[key])) {
+        return window.localStorage.removeItem(key);
+    }
+}
+
 var historyLogger = {
     log: {},
     index: 0,
@@ -107,9 +141,10 @@ function initLayout() {
     //myLayout.bindButton('#openWestPane', 'open', 'west');
     //myLayout.bindButton('#openWestPane', 'close', 'east');
     //myLayout.bindButton('#closeWestPane', 'close', 'west');
-    //myLayout.bindButton('#openEastPane', 'open', 'east');
+    myLayout.bindButton('#openEastPane', 'open', 'east');
     //myLayout.bindButton('#openEastPane', 'close', 'west');
-    //myLayout.bindButton('#closeEastPane', 'close', 'east');
+    myLayout.bindButton('#closeEastPane', 'close', 'east');
+
 }
 
 function defined(v) {
@@ -211,13 +246,23 @@ function convertDate(str) {
     var s = str.split('T');
     var date = s[0].split('-');
     var time = s[1].split(':');
-    
-    return (date[2] + " " + app_lang.months[parseInt(date[1])-1] + " " + time[0] + ':' + time[1]);
+
+    return (date[2] + " " + app_lang.months[parseInt(date[1]) - 1] + " " + time[0] + ':' + time[1]);
 }
 
 function dateFormat(str) {
     var s = str.split('T');
     return s[0];
+}
+
+function nowDate() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth();
+    var day = date.getDay() < 10 ? '0' + date.getDay() : date.getDay();
+    var hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    var min = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    return year + '-' + month + '-' + day + '-' + hour + '-' + min;
 }
 
 ////////////////
@@ -262,7 +307,6 @@ $(document).on("click", '.block-link, .block-link-normal, .gray-button-link', fu
         url: $url,
         data: $query,
         callback: function(data) {
-
             if (defined($elem.data('target'))) {
                 target_content($elem.data('target'), data);
                 return false;
@@ -272,3 +316,13 @@ $(document).on("click", '.block-link, .block-link-normal, .gray-button-link', fu
     });
     return false;
 });
+
+$(document).on('click', '.menu-item', function() {
+    $('#closeEastPane').trigger('click');
+    $('#closeWestPane').trigger('click');
+});
+
+var app_lang;
+var hidLanguageCode = getLocalData('languageCode') === null ? '01' : getLocalData('languageCode');
+var appLanguage = getLocalData('language') === null ? 'ka_GE' : getLocalData('language');
+var apiLanguage = getLocalData('apiLanguage') === null ? '4' : getLocalData('apiLanguage');

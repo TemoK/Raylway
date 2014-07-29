@@ -33,7 +33,7 @@ $(document).ready(function() {
                 });
 
                 $('#wagon-descr').html(app_lang.wagon + ': ' + wagon.Number + ', ' + wagon.RankName);
-                $('#train-descr').html(Http.params.trainname);
+                $('#train-descr').html($('<div>', {html: Http.params.trainname}));
 
                 var $cont = $('<div>', {class: 'table-div'});
                 var number = 0;
@@ -105,6 +105,7 @@ $(document).ready(function() {
     $('.checkout-seats').click(function() {
 
         var errors = null;
+        var total_amount = 0;
         var data = {
             name: 'raillockplaces',
             requestguid: purchaseData.RequestGuid,
@@ -115,7 +116,7 @@ $(document).ready(function() {
             wagon: purchaseData.wagon,
             seatcategory: purchaseData.seatcategory,
             trainname: purchaseData.trainname,
-            fromto: 'tbilisi-samgz'
+            fromto: getLocalData('fromto')
         };
         $('.passager-info').each(function(k, item) {
             var params = $(item).data();
@@ -127,6 +128,7 @@ $(document).ready(function() {
                 errors = app_lang.passenger_info_error;
                 return false;
             }
+            total_amount += parseFloat(params.price);
             data['seatinfos-passenger-' + params.index] = params.firstname + ' ' + params.lastname + ', ' + params.pin;
             data['seatinfos-no-' + params.index] = params.no;
             data['seatinfos-price-' + params.index] = params.price;
@@ -142,9 +144,8 @@ $(document).ready(function() {
             trainno: purchaseData.trainno,
             trainname: purchaseData.trainname,
             seatcategory: purchaseData.seatcategory,
-            fromto: 'tb-zamg'
+            fromto: getLocalData('fromto')
         });
-
         Http.get({
             url: '/world.aspx',
             data: data,
@@ -153,12 +154,33 @@ $(document).ready(function() {
                     alerter(r.error, app_lang.error);
                     return false;
                 }
-                //  alerter('მივედით ბილეთის ყიდვამდე', ':)');
-                Http.loc({
-                    url: '/payment',
-                    data: r,
-                    callback: function(res){
-                        target_content('.middle-content', res);
+
+                var paymentData = {
+                    PurchaseThreadID: r.PurchaseThreadID,
+                    hidAmount: total_amount
+                };
+                Http.get({
+                    url: '/world.aspx',
+                    data: {
+                        name: 'setorderowner',
+                        loginname: getLocalData('loginname'),
+                        password: getLocalData('password'),
+                        pt: r.PurchaseThreadID,
+                        created: nowDate()
+                    },
+                    callback: function(r) {
+
+                        if (defined(r.error)) {
+                            alerter(r.error, app_lang.error);
+                            return false;
+                        }
+                        Http.loc({
+                            url: '/payment',
+                            data: paymentData,
+                            callback: function(res) {
+                                target_content('.middle-content', res);
+                            }
+                        });
                     }
                 });
             }
