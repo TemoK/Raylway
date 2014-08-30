@@ -1,0 +1,39 @@
+<div id="container">
+    <div class="pane ui-layout-center">
+        <div class="ios-7-fix"></div>
+        <div class="header">
+            <a href="back" class="block-link-normal return-button"></a>
+            <!--div id="openWestPane" class="float-left right-arrow-icon"></div-->
+            <a href="javascript:{}" id="openEastPane" class="float-right settings-icon"></a>
+            <div id="topPaneCenter"></div>
+            <div class="clearer"></div>
+        </div>
+        <div class="scrollable-div middle-content"></div>
+    </div>
+    <div class="panes-bg pane ui-layout-east">
+        <div class="ios-7-fix"></div>
+        <div class="pane-header">
+            <a href="javascript:{}" id="closeEastPane" class="float-left right-arrow-icon"></a>
+            <div class="float-right"><span class="bold">{@menu}</span></div>
+            <div class="clearer"></div>
+        </div>
+        <div class="pane-body">
+            <a href="/default" class="menu-item block-link-normal">{@home}</a>
+            <div class="menu-divisor"></div>
+            <a href="/orders" class="menu-item block-link-normal">{@orders}</a>
+            <div class="menu-divisor"></div>
+            <a href="/logout" class="menu-item block-link-normal">{@exit}</a>
+            <div class="menu-divisor"></div>
+        </div>
+    </div>
+    <div class="panes-bg pane ui-layout-west">
+        <div class="ios-7-fix"></div>
+        <div class="pane-header">
+            <a href="javascript:{}" id="closeWestPane" class="float-right left-arrow-icon"></a>
+            <div class="float-left"><span class="bold">{@menu}</span></div>
+            <div class="clearer"></div>
+        </div>
+    </div>
+    <div class="panes-bg pane ui-layout-south"></div>
+</div>
+<script type="text/javascript" src="./js/modules/main.js"></script>

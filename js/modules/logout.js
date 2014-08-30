@@ -1,0 +1,3 @@
+
+removeLocalData('loginname');
+location.reload();
